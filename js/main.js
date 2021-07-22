@@ -52,8 +52,6 @@
             });
             scannedImg.src = res.imgData;
             scannedQR[txt] = res.format + ": " + res.code;
-            decoder.stop();
-            
         },
         getDevicesError: function(error) {
             var p, message = "Error detected with the following parameters:\n";
@@ -92,14 +90,13 @@
         Page.decodeLocalImage();
     }, false);
     play.addEventListener("click", function() {
-        //alert("entro al evento play");
+        alert("entro al evento play");
         if (!decoder.isInitialized()) {
             scannedQR[txt] = "Scanning ...";
         } else {
             scannedQR[txt] = "Scanning ...";
             decoder.play();
         }
-        ;
     }, false);
     grabImg.addEventListener("click", function() {
         if (!decoder.isInitialized()) {
